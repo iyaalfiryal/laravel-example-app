@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -25,3 +26,12 @@ Route::post('users', [UserController::class, 'createUser' ]);
 Route::put('user/{id}', [UserController::class, 'updateUser']);
 
 Route::post('users/photo/{id}', [UserController::class, 'addPhotoProfile']);
+
+//GET untuk mendapatkan data telpon
+Route::get('users/{user_id}/phone', [PhoneController::class, 'getAllPhone']);
+
+//POST untuk menambhkan data telpon
+Route::post('users/{user_id}/phone', [PhoneController::class, 'createPhone']);
+
+//DELETE untuk menghapus data telpon
+Route::delete('users/{user_id}/phone/{id}', [PhoneController::class, 'deletePhone']);
